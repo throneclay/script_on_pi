@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import requests
+import json
+import time
+import commands
+
+def main():
+	apiheaders = {'U-ApiKey': '2abdd376b71106d75b3b16bf409269fe', 'content-type': 'application/json'}
+	gpu = commands.getoutput( '/opt/vc/bin/vcgencmd measure_temp' ).replace( 'temp=', '' ).replace( '\'C', '' )
+	gpu = float(gpu)
+	#print('gpu value:%.2f' % gpu)
+	apiurl_gpu = 'http://api.yeelink.net/v1.0/device/8901/sensor/379029/datapoints'
+	payload_gpu = {'value': gpu}
+	r = requests.post(apiurl_gpu, headers=apiheaders, data=json.dumps(payload_gpu))
+	
+	file = open("/sys/class/thermal/thermal_zone0/temp")
+	cpu = float(file.read()) / 1000
+	file.close()
+	apiurl_cpu = 'http://api.yeelink.net/v1.0/device/8901/sensor/379028/datapoints'
+	payload_cpu = {'value': cpu}
+	r = requests.post(apiurl_cpu, headers=apiheaders, data=json.dumps(payload_cpu))
+	time.sleep(1)
+
+if __name__ == '__main__':
+    main()
