@@ -3,6 +3,8 @@ this is a backup of my script on pi, mostly are executable.
 
 # structure
 
+Here is the structure of this repo:
+
 ## file in this directory
 
 ### yeelink
