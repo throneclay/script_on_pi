@@ -1,0 +1,11 @@
+proc            /proc           proc    defaults          0       0
+/dev/mmcblk0p1  /boot           vfat    defaults          0       2
+/dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
+tmpfs /tmp tmpfs defaults,noatime,nosuid,size=100m 0 0
+tmpfs /var/tmp tmpfs defaults,noatime,nosuid,size=30m 0 0
+tmpfs /var/run tmpfs defaults,noatime,nosuid,mode=0755,size=2m 0 0
+# a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that
+
+UUID=348fed37-ef4f-4948-8ece-c278bfbe0ac5	/home/shuai/media/ws	ext4	defaults	0	0
+UUID=c311a7b4-c731-4a7a-99fa-f1b07670b487	/home/shuai/media/bt	ext4	defaults	0	0
+UUID=8d43dad8-0de4-4d21-9a7a-5e4f3e1df1e4	/home/shuai/media/data	ext4	defaults	0	0
