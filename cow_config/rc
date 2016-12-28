@@ -65,7 +65,8 @@ alwaysProxy = true
 #   用户认证信息为可选项
 #
 # shadowsocks:
-   proxy = ss://aes-256-cfb:zhangshuai_201413325!@ipv4.throneshuai.info:443
+   proxy = ss://aes-256-cfb:passwd!@ip1:port
+   proxy = ss://aes-256-cfb:passwd!@ip2:port
 #
 #   authinfo 中指定加密方法和密码，所有支持的加密方法如下：
 #     aes-128-cfb, aes-192-cfb, aes-256-cfb,
